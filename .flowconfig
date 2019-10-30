@@ -1,0 +1,14 @@
+[ignore]
+.*/build/.*
+.*\.template\.json
+.*/node_modules/.*/package\.json
+
+[include]
+
+[libs]
+
+[lints]
+
+[options]
+
+[strict]

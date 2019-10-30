@@ -1,0 +1,12 @@
+build
+lib
+src/generated
+docs
+node_modules
+*.log
+.environment
+.env
+schema.json
+devtoken.txt
+.graphqlconfig.yml
+schema.graphql

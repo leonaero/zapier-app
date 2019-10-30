@@ -1,0 +1,7 @@
+overwrite: true
+schema: "./schema.json"
+documents: "./src/fixtures/queries/aircraftList.js"
+generates:
+  src/generated/graphql.js:
+    plugins:
+      - "flow-operations"

@@ -1,0 +1,33 @@
+{
+  "name": "zapierleon",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "download-schema": "download http://api-schema-doc.s3-website-eu-west-1.amazonaws.com/schema.json > schema.json",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "make-world": "yarn download-schema && graphql-codegen --config codegen.yml",
+    "build": "rm -rf lib && yarn flow && babel src --out-dir lib",
+    "dev": "rm -rf lib && babel src --out-dir lib --watch",
+    "push": "yarn build && zapier push"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "graphql": "^14.5.8",
+    "graphql-tag": "^2.10.1",
+    "zapier-platform-cli": "8.4.1",
+    "zapier-platform-core": "8.4.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/preset-flow": "^7.0.0",
+    "@graphql-codegen/cli": "^1.8.2",
+    "@graphql-codegen/flow": "1.8.2",
+    "@graphql-codegen/flow-operations": "^1.8.2",
+    "@playlyfe/gql": "^2.6.2",
+    "download-cli": "^1.1.1",
+    "flow-bin": "^0.110.1"
+  }
+}
