@@ -9,10 +9,11 @@
     "make-world": "yarn download-schema && graphql-codegen --config codegen.yml",
     "build": "rm -rf lib && yarn flow && babel src --out-dir lib",
     "dev": "rm -rf lib && babel src --out-dir lib --watch",
-    "push": "yarn build && zapier push"
+    "push": "yarn build && zapier push",
+    "check-code-style": "prettier --check src/**/*"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "graphql": "^14.5.8",
     "graphql-tag": "^2.10.1",
@@ -28,6 +29,7 @@
     "@graphql-codegen/flow-operations": "^1.8.2",
     "@playlyfe/gql": "^2.6.2",
     "download-cli": "^1.1.1",
-    "flow-bin": "^0.110.1"
+    "flow-bin": "^0.110.1",
+    "prettier": "1.18.2"
   }
 }
