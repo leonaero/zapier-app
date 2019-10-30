@@ -12,4 +12,9 @@ yarn dev
 
 Learn more about developing Zapier app on [Zapier Developers Platform](https://zapier.com/platform)
 
-The application uses Leon graphql API. The documentation can be found [here](https://bitbucket.org/leondevteam/api-documentation/src). If you find some queries or mutations missing please contact us. 
+The application uses Leon graphql API. The documentation can be found [here](https://bitbucket.org/leondevteam/api-documentation/src). If you find some queries or mutations missing please contact us.
+
+#TODO
+
+* write some tests
+* add flow types
