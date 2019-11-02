@@ -1,6 +1,8 @@
 //@flow
+import type { DocumentNode } from "graphql";
+
 const apiRequest = require("../misc/apiRequest");
-const emptyLegsQuery = require("../fixtures/queries/emptyLegs");
+const emptyLegsQuery: DocumentNode = require("../fixtures/queries/emptyLegs");
 
 const getEmptyLegs = (z: Zapier, bundle: GetEmptyLegsBundle) => {
   return apiRequest<EmptyLegsQueryVariables, EmptyLegsQuery>(

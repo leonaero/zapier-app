@@ -11,7 +11,7 @@ const apiRequest = <V, R>(
   variables: V
 ): Promise<R> => {
   return z
-    .request(apiEndpoint(authData.operatorDomain), {
+    .request<GQLRequestBody<V>>(apiEndpoint(authData.operatorDomain), {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -22,7 +22,7 @@ const apiRequest = <V, R>(
       }
     })
     .then(response => {
-      return z.JSON.parse(response.content).data;
+      return z.JSON.parse<GQLResponse<R>>(response.content).data;
     });
 };
 

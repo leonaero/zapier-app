@@ -1,6 +1,8 @@
 //@flow
+import type { DocumentNode } from "graphql";
+
 const apiRequest = require("../misc/apiRequest");
-const scheduleQuery = require("../fixtures/queries/schedule");
+const scheduleQuery: DocumentNode = require("../fixtures/queries/schedule");
 
 const getSchedule = (z: Zapier, bundle: GetScheduleBundle) => {
   return apiRequest<GetcheduleQueryVariables, GetcheduleQuery>(

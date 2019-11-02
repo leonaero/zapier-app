@@ -1,5 +1,12 @@
+type Response = {
+  content: string
+};
+
 type Zapier = {
-  request: <B, R>(url: string, options: ZapierRequestOptions<B>) => Promise<R>,
+  request: <B>(
+    url: string,
+    options: ZapierRequestOptions<B>
+  ) => Promise<Response>,
   JSON: ZJSON
 };
 
@@ -9,7 +16,7 @@ type ZJSON = {
 
 type ZapierRequestOptions<B> = {
   headers?: Headers,
-  method: string,
+  method: "GET" | "POST",
   body: B
 };
 
@@ -41,7 +48,7 @@ type Request = {
 type GetEmptyLegsBundle = {
   ...AuthRequestBundle,
   inputData: {
-    from: DateTime
+    from: string
   }
 };
 
@@ -55,7 +62,16 @@ type GetAircraftBundle = {
 type GetScheduleBundle = {
   ...AuthRequestBundle,
   inputData: {
-    from: DateTime,
-    end: DateTime
+    from: string,
+    end: string
   }
 };
+
+type GQLResponse<T> = {
+  data: T
+};
+
+type GQLRequestBody<V> = {|
+  query: string,
+  variables: V
+|};

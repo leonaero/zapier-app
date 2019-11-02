@@ -1,6 +1,8 @@
 //@flow
+import type { DocumentNode } from "graphql";
+
 const apiRequest = require("../misc/apiRequest");
-const aircraftListQuery = require("../fixtures/queries/aircraft.js");
+const aircraftListQuery: DocumentNode = require("../fixtures/queries/aircraft.js");
 
 const getAircraft = (z: Zapier, bundle: GetAircraftBundle) => {
   return apiRequest<AircraftQueryVariables, AircraftQuery>(
