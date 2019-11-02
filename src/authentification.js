@@ -1,11 +1,14 @@
-const getAccessToken = (z, bundle) => {
-  const promise = z.request({
-    method: "POST",
-    url: `https://${bundle.authData.operatorDomain}/access_token/refresh/`,
-    body: {
-      refresh_token: bundle.authData.refresh_token
+//@flow
+const getAccessToken = (z: Zapier, bundle: AuthRequestBundle) => {
+  const promise = z.request(
+    `https://${bundle.authData.operatorDomain}/access_token/refresh/`,
+    {
+      method: "POST",
+      body: {
+        refresh_token: bundle.authData.refresh_token
+      }
     }
-  });
+  );
 
   return promise.then(response => {
     return {
@@ -14,7 +17,11 @@ const getAccessToken = (z, bundle) => {
   });
 };
 
-const attachAccessToken = (request, z, bundle) => {
+const attachAccessToken = (
+  request: Request,
+  z: Zapier,
+  bundle: AuthResponseBundle
+) => {
   const access_token = bundle.authData.sessionKey;
   request.headers = request.headers || {};
   request.headers["Authorization"] = `Bearer ${access_token}`;

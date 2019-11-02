@@ -1,12 +1,17 @@
+//@flow
 const apiRequest = require("../misc/apiRequest");
 const emptyLegsQuery = require("../fixtures/queries/emptyLegs");
 
-const getEmptyLegs = (z, bundle) => {
-  return apiRequest(z, bundle.authData, emptyLegsQuery, {
-    from: bundle.inputData.from
-  }).then(response => {
-    const data = z.JSON.parse(response.content).data;
-    return data.aircraftAvailability.emptyLegList;
+const getEmptyLegs = (z: Zapier, bundle: GetEmptyLegsBundle) => {
+  return apiRequest<EmptyLegsQueryVariables, EmptyLegsQuery>(
+    z,
+    bundle.authData,
+    emptyLegsQuery,
+    {
+      from: bundle.inputData.from
+    }
+  ).then(response => {
+    return response.aircraftAvailability.emptyLegList;
   });
 };
 
@@ -15,8 +20,8 @@ module.exports = {
 
   noun: "Empty Legs",
   display: {
-    label: "Find empty legs`",
-    description: "Finds operator aircraft by unique id",
+    label: "Finds empty legs`",
+    description: "Finds operator future ferry flights",
     hidden: false
   },
 
@@ -26,7 +31,8 @@ module.exports = {
         key: "from",
         type: "string",
         label: "From date",
-        helpText: "Numeric unique identificator of aircraft in Leon",
+        helpText:
+          "Starting date time in ISO 8601 format, ex. 2019-06-05, 2019-06-05T12:00:00",
         required: false
       }
     ],

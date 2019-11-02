@@ -1,11 +1,12 @@
 [ignore]
 .*/build/.*
 .*\.template\.json
-.*/node_modules/.*/package\.json
+.*/node_modules/module-deps/test/invalid_pkg/package.json
 
 [include]
 
 [libs]
+./src/types
 
 [lints]
 

@@ -1,7 +1,11 @@
 overwrite: true
 schema: "./schema.json"
-documents: "./src/fixtures/queries/aircraftList.js"
+documents: "./src/fixtures/queries/*.js"
 generates:
-  src/generated/graphql.js:
+  src/types/api.js:
     plugins:
+      - "flow"
       - "flow-operations"
+config:
+  scalars:
+    FlightNid: number

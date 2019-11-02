@@ -23,7 +23,7 @@ const emptyLegsQuery = gql`
           }
         }
         flightNo
-        id: trNid
+        id: flightNid
       }
     }
   }

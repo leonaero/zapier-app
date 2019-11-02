@@ -1,13 +1,18 @@
+//@flow
 const apiRequest = require("../misc/apiRequest");
 const scheduleQuery = require("../fixtures/queries/schedule");
 
-const getSchedule = (z, bundle) => {
-  return apiRequest(z, bundle.authData, scheduleQuery, {
-    from: bundle.inputData.from,
-    end: bundle.inputData.end
-  }).then(response => {
-    const data = z.JSON.parse(response.content).data;
-    return data.flightList;
+const getSchedule = (z: Zapier, bundle: GetScheduleBundle) => {
+  return apiRequest<GetcheduleQueryVariables, GetcheduleQuery>(
+    z,
+    bundle.authData,
+    scheduleQuery,
+    {
+      from: bundle.inputData.from,
+      end: bundle.inputData.end
+    }
+  ).then(response => {
+    return response.flightList;
   });
 };
 

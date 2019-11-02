@@ -1,12 +1,17 @@
+//@flow
 const apiRequest = require("../misc/apiRequest");
 const aircraftListQuery = require("../fixtures/queries/aircraft.js");
 
-const getAircraft = (z, bundle) => {
-  return apiRequest(z, bundle.authData, aircraftListQuery, {
-    id: bundle.inputData.id
-  }).then(response => {
-    const data = z.JSON.parse(response.content).data;
-    return [data.aircraft];
+const getAircraft = (z: Zapier, bundle: GetAircraftBundle) => {
+  return apiRequest<AircraftQueryVariables, AircraftQuery>(
+    z,
+    bundle.authData,
+    aircraftListQuery,
+    {
+      id: bundle.inputData.id
+    }
+  ).then(response => {
+    return [response.aircraft];
   });
 };
 

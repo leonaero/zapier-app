@@ -1,9 +1,9 @@
 const gql = require("graphql-tag");
 
-const scheduleQuery = gql`
-  query schedule($from: DateTime!, $end: DateTime!) {
+const getScheduleQuery = gql`
+  query getchedule($from: DateTime!, $end: DateTime!) {
     flightList(filter: { timeInterval: { start: $from, end: $end } }) {
-      id: trNid
+      id: flightNid
       acft {
         registration
       }
@@ -33,4 +33,4 @@ const scheduleQuery = gql`
   }
 `;
 
-module.exports = scheduleQuery;
+module.exports = getScheduleQuery;

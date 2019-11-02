@@ -1,7 +1,7 @@
 .zapierapprc
 build
 lib
-src/generated
+src/types/api.js
 docs
 node_modules
 *.log
