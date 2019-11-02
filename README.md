@@ -1,12 +1,14 @@
 # zapier-app
+
 This is the Leon application for Zapier platform.
 
 # Contributing
 
-You are more than welcome to create triggers and searches. Fork the repo and run commands below. 
+You are more than welcome to create triggers and searches. Fork the repo and run commands below.
 
 ```
 yarn install
+yanr make-world
 yarn dev
 ```
 
@@ -16,5 +18,5 @@ The application uses Leon graphql API. The documentation can be found [here](htt
 
 #TODO
 
-* write some tests
-* add flow types
+- write some tests
+- add flow types
