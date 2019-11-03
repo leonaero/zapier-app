@@ -13,7 +13,7 @@ const getEmptyLegs = (z: Zapier, bundle: GetEmptyLegsBundle) => {
       from: bundle.inputData.from
     }
   ).then(response => {
-    return response.aircraftAvailability.emptyLegList;
+    return [response.aircraftAvailability];
   });
 };
 

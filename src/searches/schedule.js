@@ -14,7 +14,7 @@ const getSchedule = (z: Zapier, bundle: GetScheduleBundle) => {
       end: bundle.inputData.end
     }
   ).then(response => {
-    return response.flightList;
+    return [response];
   });
 };
 

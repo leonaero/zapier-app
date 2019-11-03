@@ -4,6 +4,7 @@ const emptyLegsQuery = gql`
   query emptyLegs($from: DateTime) {
     aircraftAvailability {
       emptyLegList(startTime: $from) {
+        id: flightNid
         acft {
           registration
           acftNid
@@ -23,7 +24,6 @@ const emptyLegsQuery = gql`
           }
         }
         flightNo
-        id: flightNid
       }
     }
   }
